@@ -31,6 +31,9 @@
         position: absolute;
         left: 15.5%;
         z-index: 10;
+      }
+
+      #tv-background {
         pointer-events: none;
       }
 
@@ -58,19 +61,25 @@
         text-shadow: 3px 5px 2px #474747;
       }
 
+      #button-image {
+        width: 75px;
+        left: 48.4%;
+        margin-top: 40.5%;
+        cursor: pointer;
+      }
+
       #arrow-animation {
         width: 4%;
         transform: rotate(90deg);
         position: absolute;
-        margin-top: 43%;
+        margin-top: 44%;
         left: 48%;
         z-index: 10;
-        cursor: pointer;
       }
 
       .arrow-animation-text {
         position: absolute;
-        margin-top: 44.5%;
+        margin-top: 45%;
         left: 54%;
         z-index: 10;
         font-size: 25px;
@@ -362,6 +371,12 @@
           </div>
         </div>
       </div>
+      <img
+        src="https://pnghq.com/wp-content/uploads/button-icon-red-png-transparent-image-1536x1103.png"
+        width="75px"
+        id="button-image"
+        style="display: none"
+      />
       <div id="arrow-animation"></div>
       <span
         id="arrow-animation-text"
@@ -398,6 +413,7 @@
       }
 
       function onShowSelect() {
+        document.getElementById("button-image").style.display = "none";
         document.getElementById("arrow-animation").style.display = "none";
         document.getElementById("tv-background").style.width = "45%";
         document.getElementById("tv-background").style.left = "27.5%";
@@ -1526,6 +1542,7 @@
           ],
           markers: [],
         };
+        document.getElementById("button-image").style.display = "block";
         document.getElementById("arrow-animation-text").style.display = "block";
         var arrowAni = lottie.loadAnimation({
           container: document.getElementById("arrow-animation"),
@@ -1535,7 +1552,7 @@
           animationData: arrowAnimation,
         });
         document
-          .getElementById("arrow-animation")
+          .getElementById("button-image")
           .addEventListener("click", function () {
             onShowSelect();
             // playerAutoSwitch = false;
@@ -1554,7 +1571,7 @@
                 videoElement.remove();
               }
               document.getElementById("gift-container").style.display = "block";
-            }, 100);
+            }, 500);
           });
         });
 
