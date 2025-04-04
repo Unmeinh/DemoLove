@@ -11,6 +11,11 @@
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
+    @font-face {
+      font-family: 'Anastasia';
+      src: url('./anastasia.ttf') format('truetype');
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -60,6 +65,16 @@
       text-shadow: 3px 5px 2px #474747;
     }
 
+    #title {
+      position: absolute;
+    font-size: 55px;
+    left: 29.5%;
+    margin-top: 6%;
+    font-family: 'Anastasia', sans-serif;
+    z-index: 10;
+    text-shadow: 3px 5px 2px #b4003d;
+    }
+
     #button-image {
       width: 4.5%;
       left: 48%;
@@ -78,7 +93,7 @@
 
     .arrow-animation-text {
       position: absolute;
-      margin-top: 45%;
+      margin-top: 40.5%;
       left: 54%;
       z-index: 10;
       font-size: 25px;
@@ -349,9 +364,9 @@
 
 <body>
   <audio id="audioPlayer" style="display: none;">
-      <source src="./lovenotchange.m4a" type="audio/mp4">
-      Your browser does not support the audio element.
-  </audio> 
+    <source src="./lovenotchange.m4a" type="audio/mp4">
+    Your browser does not support the audio element.
+  </audio>
   <div id="video-container" class="video-container">
     <img
       src="https://th.bing.com/th/id/R.d96a876f9c364c6b88528762fb2f4342?rik=Z7B%2bYR0FfQ4gZA&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2ftv-transparent-png%2ftv-transparent-png-5.png&ehk=ONjbVaocQo35jFlpg5yPJgo2C1Uatj%2bslInBqUXqMdk%3d&risl=&pid=ImgRaw&r=0"
@@ -385,6 +400,7 @@
     <span id="arrow-animation-text" class="arrow-animation-text" style="display: none">Click here!</span>
   </div>
   <div id="gift-container" class="gift-container" style="display: none">
+    <h1 id="title" style="display: none">I LOVE YOU SO MUCH</h1>
     <div id="highlight-animation"></div>
     <span id="highlight-animation-text" class="highlight-animation-text">Click here!</span>
     <div id="box-animation"></div>
@@ -15705,6 +15721,9 @@
           });
         }, 2500);
         setTimeout(function () {
+          setTimeout(() => {
+            document.getElementById("title").style.display = "block";
+          }, 500);
           document.getElementById("bear-animation").style.display = "block";
           var bearAni = lottie.loadAnimation({
             container: document.getElementById("bear-animation"),
